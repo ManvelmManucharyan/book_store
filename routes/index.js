@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const rout = require('../routes/user')
+const rout = require('./book')
 
 router.use('/books', rout)
 

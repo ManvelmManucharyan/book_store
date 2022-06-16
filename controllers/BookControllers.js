@@ -1,6 +1,6 @@
-const UserServices = require('../service/UserServices')
+const UserServices = require('../service/BookServices')
 
-class UserControllers {
+class BookControllers {
     static async getAllBooks(req,res){
         const books = await UserServices.getAllBooks()
         res.status(200).send(books)
@@ -33,4 +33,4 @@ class UserControllers {
 
 }
 
-module.exports = UserControllers;
+module.exports = BookControllers;

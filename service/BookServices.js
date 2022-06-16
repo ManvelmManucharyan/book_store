@@ -1,6 +1,6 @@
 const books = require('../models/books');
 
-class UserServices {
+class BookServices {
     static async getAllBooks(){
         return books.findAll();
     }
@@ -27,4 +27,4 @@ class UserServices {
 
 }
 
-module.exports = UserServices;
+module.exports = BookServices;
