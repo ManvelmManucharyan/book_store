@@ -5,6 +5,15 @@ class UserControllers {
         const books = await UserServices.getAllBooks()
         res.status(200).send(books)
     }
+    static async getAllBooksById(req,res){
+        const book = await UserServices.getAllBooksById(req.params.id)
+        res.status(200).send(book)
+    }
+
+    static async getAllBooksByBook(req,res){
+        const book = await UserServices.getAllBooksByBook(req.params.title)
+        res.status(200).send(book)
+    }
 
     static async createBook(req, res){
         const {title,author,price,category} = req.body;

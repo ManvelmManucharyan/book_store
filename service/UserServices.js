@@ -4,6 +4,14 @@ class UserServices {
     static async getAllBooks(){
         return books.findAll();
     }
+    static async getAllBooksById(id){
+        return books.findByPk(id);
+    }
+    static async getAllBooksByBook(title){
+        return books.findOne({
+            where: { title },
+        });
+    }
 
     static async createBook (title, author, price, category){
         await books.create({title, author, price, category})
