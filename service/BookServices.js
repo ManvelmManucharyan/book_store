@@ -8,8 +8,14 @@ class BookServices {
         return books.findByPk(id);
     }
     static async getAllBooksByBook(title){
-        return books.findOne({
+        return books.findAll({
             where: { title },
+        });
+    }
+
+    static async getAllBooksByCategory(category){
+        return books.findAll({
+            where: { category },
         });
     }
 
