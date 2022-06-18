@@ -42,7 +42,7 @@ class BookControllers {
 
     static async updateInfo(req,res){
         await UserServices.updateInfo(req.body ,req.params.id)
-        res.status(201).send('Book price successfully updated')
+        res.status(201).send('Book info successfully updated')
     }
 
 }
