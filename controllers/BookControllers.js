@@ -20,6 +20,11 @@ class BookControllers {
         res.status(200).send(book)
     }
 
+    static async getAllBooksByPrice(req,res){
+        const book = await UserServices.getAllBooksByPrice(req.params.price)
+        res.status(200).send(book)
+    }
+
     static async createBook(req, res){
         const {title,author,price,category} = req.body;
         await UserServices.createBook(title,author,price,category);

@@ -1,14 +1,17 @@
 const books = require('../models/books');
+const { Op } = require("sequelize");
 
 class BookServices {
     static async getAllBooks(){
-        return books.findAll();
+        return books.findAll({
+        });
     }
     static async getAllBooksById(id){
         return books.findByPk(id);
     }
     static async getAllBooksByBook(title){
         return books.findAll({
+            attributes: ['title'],
             where: { title },
         });
     }
@@ -16,6 +19,16 @@ class BookServices {
     static async getAllBooksByCategory(category){
         return books.findAll({
             where: { category },
+        });
+    }
+
+    static async getAllBooksByPrice(price){
+        return books.findAll({
+            where: {
+                price: {
+                    [Op.lt]: price
+                }
+            },
         });
     }
 
