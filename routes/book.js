@@ -3,12 +3,13 @@ const router = express.Router();
 const UserController = require('../controllers/BookControllers')
 
 router.get('/', UserController.getAllBooks);
-router.get('/:id', UserController.getAllBooksById);
-router.get('/title/:title', UserController.getAllBooksByBook);
+router.get('/:params', UserController.getAllBooksByBookRow);
+router.get('/id/:id', UserController.getAllBooksById);
+router.get('/title/:title', UserController.getAllBooksByBookTitle);
 router.get('/category/:category', UserController.getAllBooksByCategory);
 router.get('/price/:price', UserController.getAllBooksByPrice);
 router.post('/', UserController.createBook);
 router.delete('/:id', UserController.deleteBook);
-router.put('/:id', UserController.updatePrice)
+router.put('/:id', UserController.updateInfo)
 
 module.exports=router;

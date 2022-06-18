@@ -5,13 +5,17 @@ class BookControllers {
         const books = await UserServices.getAllBooks()
         res.status(200).send(books)
     }
+    static async getAllBooksByBookRow(req,res){
+        const books = await UserServices.getAllBooksByBookRow(req.params.params)
+        res.status(200).send(books)
+    }
     static async getAllBooksById(req,res){
         const book = await UserServices.getAllBooksById(req.params.id)
         res.status(200).send(book)
     }
 
-    static async getAllBooksByBook(req,res){
-        const book = await UserServices.getAllBooksByBook(req.params.title)
+    static async getAllBooksByBookTitle(req,res){
+        const book = await UserServices.getAllBooksByBookTitle(req.params.title)
         res.status(200).send(book)
     }
 
@@ -36,8 +40,8 @@ class BookControllers {
         res.status(201).send('Book successfully deleted')
     }
 
-    static async updatePrice(req,res){
-        await UserServices.updatePrice(req.body.price ,req.params.id)
+    static async updateInfo(req,res){
+        await UserServices.updateInfo(req.body ,req.params.id)
         res.status(201).send('Book price successfully updated')
     }
 

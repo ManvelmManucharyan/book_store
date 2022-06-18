@@ -9,9 +9,13 @@ class BookServices {
     static async getAllBooksById(id){
         return books.findByPk(id);
     }
-    static async getAllBooksByBook(title){
+    static async getAllBooksByBookRow(...params){
         return books.findAll({
-            attributes: ['title'],
+            attributes: params
+        });
+    }
+    static async getAllBooksByBookTitle(title){
+        return books.findAll({
             where: { title },
         });
     }
@@ -40,8 +44,8 @@ class BookServices {
         await books.destroy({where: {id}});
     }
 
-    static async updatePrice(price,id){
-        await books.update({price}, {where:{id}})
+    static async updateInfo(params,id){
+        await books.update(params, {where:{id}})
     }
 
 }
