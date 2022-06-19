@@ -2,13 +2,10 @@ const UserServices = require('../service/BookServices')
 
 class BookControllers {
     static async getAllBooks(req,res){
-        const books = await UserServices.getAllBooks()
+        const books = await UserServices.getAllBooks(req.query)
         res.status(200).send(books)
     }
-    static async getAllBooksByBookRow(req,res){
-        const books = await UserServices.getAllBooksByBookRow(req.params.params)
-        res.status(200).send(books)
-    }
+
     static async getAllBooksById(req,res){
         const book = await UserServices.getAllBooksById(req.params.id)
         res.status(200).send(book)
